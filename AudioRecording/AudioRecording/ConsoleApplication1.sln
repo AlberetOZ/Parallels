@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AudioRecorder", "ConsoleApplication1.vcxproj", "{880F9BEA-2D7B-458A-921F-BB9965E735C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Debug|x64.ActiveCfg = Debug|x64
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Debug|x64.Build.0 = Debug|x64
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Debug|x86.ActiveCfg = Debug|Win32
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Debug|x86.Build.0 = Debug|Win32
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Release|x64.ActiveCfg = Release|x64
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Release|x64.Build.0 = Release|x64
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Release|x86.ActiveCfg = Release|Win32
+		{880F9BEA-2D7B-458A-921F-BB9965E735C3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A54E784C-FCA7-4A5A-8299-EE7A9DC93B42}
+	EndGlobalSection
+EndGlobal

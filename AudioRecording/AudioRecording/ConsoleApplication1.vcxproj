@@ -154,7 +154,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="defines.h" />
+    <ClInclude Include="includes.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="WavePreparetion.h" />
+    <ClInclude Include="WavWriter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AudioRecorder.cpp" />
