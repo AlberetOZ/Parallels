@@ -23,7 +23,7 @@ int WaveFormatex_Setting(WAVEFORMATEX& pFormat)
 	pFormat.nChannels = MONO;								 //  1=mono, 2=stereo
 	pFormat.wBitsPerSample = PCM_SUBCHUNK1SIZE;              //  16 for high quality, 8 for telephone-grade
 	pFormat.nSamplesPerSec = sampleRate;
-	pFormat.nBlockAlign = 2;
+	pFormat.nBlockAlign = DEFAULT_NBLOCKALIGN;
 	pFormat.nAvgBytesPerSec = sampleRate * pFormat.nChannels * pFormat.wBitsPerSample / BYTE;
 	pFormat.nBlockAlign = pFormat.nChannels * pFormat.wBitsPerSample / BYTE;
 	pFormat.cbSize = NULL;
@@ -36,7 +36,7 @@ int WaveInHeader_Preparation(WAVEHDR& waveInHdr)
 {
 
 	waveInHdr.lpData = (LPSTR)waveIn;
-	waveInHdr.dwBufferLength = NUMPTS * 2;
+	waveInHdr.dwBufferLength = NUMPTS + NUMPTS;				//
 	waveInHdr.dwBytesRecorded = NULL;
 	waveInHdr.dwUser = NULL;
 	waveInHdr.dwFlags = NULL;
@@ -50,11 +50,11 @@ int WaveOutHeader_Preparation(WAVEHDR& WaveOutHdr)
 {
 
 	WaveOutHdr.lpData = (LPSTR)waveIn;
-	WaveOutHdr.dwBufferLength = NUMPTS * 2;
+	WaveOutHdr.dwBufferLength = NUMPTS + NUMPTS;
 	WaveOutHdr.dwBytesRecorded = NULL;
 	WaveOutHdr.dwUser = NULL;
 	WaveOutHdr.dwFlags = NULL;
-	WaveOutHdr.dwLoops = 1;
+	WaveOutHdr.dwLoops = OUTPUT_LOOP;
 
 	return NULL;
 

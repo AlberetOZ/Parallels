@@ -1,7 +1,7 @@
 
 class WAV
 {
-public:
+private:
 	// "RIFF" ASCII
 	// (0x52494646 in big-endian)
 	char chunkId[STRING_NUMBER_SYMBOLS_WAV];
@@ -47,9 +47,14 @@ public:
 	
 	const short int* waveData;
 
+
+public:
+
 	WAV();													// constructor
 	WAV(const short int*, unsigned long);					// constructor with data
 	~WAV();													// destructor
+
+	int read_WAVEFORMATEX(WAVEFORMATEX&);					// data in class from WAVEFORMATEX
 
 	int read(const short int*, unsigned long);				// data in class
 	int write(FILE*);										// data in file 
@@ -62,19 +67,19 @@ int WAV::count() {
 	blockAlign = numChannels * bitsPerSample / BYTE;
 	chunkSize = NUMBER_SYMBOLS_WAV + (NUMBER_SYMBOLS_WAV + NUMBER_SYMBOLS_WAV + subchunk1Size) + (NUMBER_SYMBOLS_WAV + NUMBER_SYMBOLS_WAV + subchunk2Size);
 
-	return 0;
+	return NULL;
 }
 /*
 int WAV::strncpy(char* destination, const size_t size, const char* data) {
 	assert(destination);
 	assert(data);
-	for (size_t step = 0; step < size; ++step)
+	for (size_t step = NULL; step < size; ++step)
 	{
 		destination[step] = data[step];
 
 	}
 
-	return 0;
+	return NULL;
 }
 */
 
@@ -120,13 +125,28 @@ WAV::WAV(const short int* waveIn, unsigned long waveInSize)
 	assert(!WAV::count());
 }
 
+
+int WAV::read_WAVEFORMATEX(WAVEFORMATEX& pFormat) {
+
+	assert(!strcpy_s(chunkId, STRING_NUMBER_SYMBOLS_WAV, "RIFF"));
+	assert(!strcpy_s(format, STRING_NUMBER_SYMBOLS_WAV, "WAVE"));
+	assert(!strcpy_s(subchunk1Id, STRING_NUMBER_SYMBOLS_WAV, "fmt "));
+	subchunk1Size = PCM_SUBCHUNK1SIZE;
+	audioFormat = FORMAT_PCM;
+	numChannels = pFormat.nChannels;
+	bitsPerSample = pFormat.wBitsPerSample;
+	//sampleRate =
+	assert(!strcpy_s(subchunk2Id, STRING_NUMBER_SYMBOLS_WAV, "data"));
+	return NULL;
+}
+
 int WAV::read(const short int* waveIn, unsigned long waveInSize)
 {
 	waveData = waveIn;
 	subchunk2Size = waveInSize;
 
 	assert(!WAV::count());
-	return 0;
+	return NULL;
 }
 
 int WAV::write(FILE* output) {
@@ -144,10 +164,10 @@ int WAV::write(FILE* output) {
 	fputs((char*)&bitsPerSample, output);
 	fputs(subchunk2Id, output);
 	fputs((char*)&subchunk2Size, output);
-	fwrite(waveData, subchunk2Size *sizeof(*waveData), 1, output);
+	fwrite(waveData, subchunk2Size * sizeof(*waveData), 1, output);
 
 
-	return 0;
+	return NULL;
 }
 
 WAV::~WAV() {
