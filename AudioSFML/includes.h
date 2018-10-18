@@ -1,0 +1,14 @@
+#include <iostream>
+#include <string>
+#include <assert.h>
+#include <fstream>
+#include "windows.h"
+#include "mmsystem.h"
+#include "defines.h"
+#include <stdio.h>
+#include <tchar.h>
+#include <conio.h>
+#include <stdio.h>
+#include <math.h>
+//#include "WavWriter.h"
+//#include "WavePreparetion.h"
